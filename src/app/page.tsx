@@ -11,6 +11,8 @@ import { Calculator } from "@/components/Calculator";
 import { WhyReachfy } from "@/components/WhyReachfy";
 import { Integrations } from "@/components/Integrations";
 import { FinalCta } from "@/components/FinalCta";
+import { FirstSteps } from "@/components/FirstSteps";
+import { Problem } from "@/components/Problem";
 import { content } from "@/content";
 import { homeJsonLd, pageMetadata } from "@/lib/seo";
 
@@ -26,6 +28,7 @@ export default function Home() {
       <Nav />
       <main className="mx-auto w-full max-w-[1200px]">
         <Hero />
+        <Problem />
         <HowItWorks />
         <AgentModes />
         <Calculator />
@@ -33,6 +36,7 @@ export default function Home() {
         <Features />
         <Control />
         <Integrations />
+        <FirstSteps />
         <Faq />
         <FinalCta />
       </main>

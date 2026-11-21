@@ -4,7 +4,8 @@
   Source: "Reachfy Lean Canvas 2027" (Plan 2027, Platform First, 21 Nov 2026),
   Revenue Streams. Plans are priced by database size (customers). The canvas
   prices in JOD (49 / 119 / 199 / 400+); the site shows USD, converted at
-  1 JOD = 1.41 USD and rounded to $69 / $169 / $279 / $569+.
+  1 JOD = 1.41 USD and rounded to $69 / $169 / $279. Enterprise is custom
+  pricing, with no price shown.
   Every plan includes every feature. Annual billing is "pay 10 months, get 12"; WhatsApp is paid to
   Meta at Meta's cost with no markup.
 */
@@ -13,8 +14,7 @@ export type Plan = {
   name: string;
   for: string;
   limit: string;
-  price: string | null; // USD per month; null = quoted
-  from?: boolean; // show "From"
+  price: string | null; // USD per month; null = custom pricing
   cta: "start" | "talk";
 };
 
@@ -31,13 +31,13 @@ export const pricing = {
   extrasHeading: "Good to know",
   currency: "$",
   perMonth: "/ month",
-  from: "From",
+  custom: "Custom",
   talk: "Talk to us",
   plans: [
     { name: "Starter", for: "For stores starting to win customers back", limit: "Up to 10,000 customers", price: "69", cta: "start" },
     { name: "Growth", for: "For stores with a growing customer base", limit: "Up to 50,000 customers", price: "169", cta: "start" },
     { name: "Pro", for: "For large customer bases", limit: "Up to 150,000 customers", price: "279", cta: "start" },
-    { name: "Enterprise", for: "For several brands, or a very large customer base", limit: "Over 150,000 customers", price: "569", from: true, cta: "talk" },
+    { name: "Enterprise", for: "For several brands, or a very large customer base", limit: "Over 150,000 customers", price: null, cta: "talk" },
   ] as Plan[],
   notes: "Prices are in US dollars (USD).",
   extras: [
@@ -82,6 +82,18 @@ export const pricing = {
         a: "Each plan covers a number of customers in your Reachfy database: the customer profiles synced from your store, imported from a CSV, or sent through the API.",
       },
       {
+        q: "Do unsubscribed or archived customers count?",
+        a: "Yes. Every customer profile in your workspace counts toward your plan, whatever its status.",
+      },
+      {
+        q: "What happens when I reach my plan's limit?",
+        a: "You can't add more customers until you make room. Move to a bigger plan, or remove customers you no longer need. We never upgrade your plan automatically.",
+      },
+      {
+        q: "Is email included?",
+        a: "Yes. Campaign email is included on every plan, subject to fair use. There's no per-email charge.",
+      },
+      {
         q: "Do all plans include the AI agent?",
         a: "Yes. Every plan includes every feature, including the AI agent, WhatsApp, email and all integrations. Plans differ only by the number of customers.",
       },
@@ -95,7 +107,7 @@ export const pricing = {
       },
       {
         q: "What if I have more than 150,000 customers or several brands?",
-        a: "The Enterprise plan starts at $569 a month and is quoted for your setup. Get in touch and we'll put a price together.",
+        a: "The Enterprise plan is priced for your setup. Get in touch and we'll put a price together.",
       },
     ],
   },

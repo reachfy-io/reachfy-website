@@ -1,5 +1,6 @@
 import { Faq } from "@/components/Faq";
 import { FinalCta } from "@/components/FinalCta";
+import { FirstSteps } from "@/components/FirstSteps";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { Nav } from "@/components/Nav";
@@ -45,12 +46,10 @@ function PlanCard({ plan }: { plan: Plan }) {
       <p className="mt-1 min-h-[2.75rem] text-sm leading-snug text-ink-2">{plan.for}</p>
 
       <p className="mt-6 flex items-baseline gap-1.5 text-ink">
-        {plan.from && <span className="text-sm text-muted">{t.from}</span>}
         <span className="text-[2.5rem] font-semibold leading-none tracking-[-0.03em] tabular-nums">
-          {t.currency}
-          {plan.price}
+          {plan.price ? `${t.currency}${plan.price}` : t.custom}
         </span>
-        <span className="text-sm text-muted">{t.perMonth}</span>
+        {plan.price && <span className="text-sm text-muted">{t.perMonth}</span>}
       </p>
 
       <p className="mt-6 flex items-center gap-2 border-t border-line pt-4 text-sm font-medium text-ink">
@@ -142,6 +141,7 @@ export default function Page() {
           </ul>
         </section>
 
+        <FirstSteps />
         <Faq data={t.faq} id="pricing-faq" />
         <FinalCta />
       </main>

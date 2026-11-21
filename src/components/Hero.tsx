@@ -1,11 +1,13 @@
 import { content } from "@/content";
+import { HeroVisual } from "./HeroVisual";
 
 export function Hero() {
   const t = content;
   return (
     <section className="relative">
       <div className="mx-auto max-w-[820px] px-4 pb-4 pt-20 text-center sm:px-6 sm:pt-32">
-        <h1 className="text-balance text-[clamp(2.4rem,6vw,4.25rem)] font-semibold leading-[1.04] tracking-[-0.035em] text-ink">
+        <p className="text-sm font-medium text-brand">{t.hero.label}</p>
+        <h1 className="mt-4 text-balance text-[clamp(2.4rem,6vw,4.25rem)] font-semibold leading-[1.04] tracking-[-0.035em] text-ink">
           {t.hero.title}
         </h1>
         <p className="mx-auto mt-6 max-w-[36rem] text-lg leading-relaxed text-ink-2">
@@ -40,6 +42,9 @@ export function Hero() {
           </span>
           {t.hero.connects}
         </p>
+      </div>
+      <div className="px-4 sm:px-6">
+        <HeroVisual />
       </div>
     </section>
   );

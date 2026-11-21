@@ -113,7 +113,7 @@ export const privacy: LegalDoc = {
         { label: "Auth0 (Okta)", text: "Sign-in and account security" },
         { label: "Stripe", text: "Payments and billing" },
         { label: "AI model provider", text: "Running the AI agent, using summaries that don't identify customers (section 6)" },
-        { label: "Website hosting", text: "Serving reachfy.io" },
+        { label: "Cloudflare", text: "Serving reachfy.io and counting visits to it, without cookies" },
       ],
       after: [
         "When a business connects Shopify or Odoo, we read data from those services on the business's instructions. A current list of our service providers is available on request. We may also disclose data if the law requires it, or as part of a merger or sale of our business, under the same protections.",
@@ -164,7 +164,7 @@ export const privacy: LegalDoc = {
     {
       heading: "13. Cookies",
       body: [
-        "Our website, reachfy.io, does not use cookies or analytics tools. The Reachfy app uses only the cookies needed to sign you in and keep your session secure. Our hosting providers keep standard server logs, such as IP addresses, for security.",
+        "Our website, reachfy.io, does not use cookies. We count visits with Cloudflare Web Analytics, which doesn't use cookies or track you across sites. The Reachfy app uses only the cookies needed to sign you in and keep your session secure. Our hosting providers keep standard server logs, such as IP addresses, for security.",
       ],
     },
     {
@@ -214,11 +214,11 @@ export const terms: LegalDoc = {
     {
       heading: "4. Plans, billing and taxes",
       list: [
-        { label: "Plans", text: "Plans are priced by the number of customers in your Reachfy workspace, as shown on our pricing page. Every plan includes every feature. Enterprise plans are quoted separately." },
+        { label: "Plans", text: "Plans are priced by the number of customer profiles in your Reachfy workspace, whatever their status, as shown on our pricing page. Every plan includes every feature, and campaign email is included subject to fair use. Enterprise plans are quoted separately." },
         { label: "Free trial", text: "New accounts may start with a free trial. Its length is shown when you sign up. You won't be charged unless you choose a paid plan." },
         { label: "Billing", text: "Fees are in US dollars and billed in advance, monthly or yearly, through Stripe. Plans renew automatically at the end of each billing period until you cancel." },
         { label: "Taxes", text: "Fees don't include taxes. You pay any taxes that apply, except taxes on our income." },
-        { label: "Going over your plan's limit", text: "If your customer count goes over your plan's limit, we'll let you know. If it is still over at your next billing date, your plan moves to the one that fits, at that plan's price." },
+        { label: "Your plan's limit", text: "When you reach your plan's customer limit, you can't add more customers until you move to a bigger plan or remove customers. We never change your plan without your action." },
         { label: "Price changes", text: "We may change our prices. We'll tell you at least 30 days in advance, and new prices apply from your next billing period." },
         { label: "Late payment", text: "If a payment fails and isn't fixed after we notify you, we may suspend the Services until it is paid." },
       ],
@@ -365,7 +365,7 @@ export const refund: LegalDoc = {
     {
       heading: "5. Changing plans",
       body: [
-        "When you move to a larger plan, including when your customer count grows past your plan's limit, the new price applies from your next billing date. When you move to a smaller plan, the change takes effect at your next billing date. Plan changes don't create refunds for the current period.",
+        "When you move to a larger plan, the new price applies from your next billing date. When you move to a smaller plan, the change takes effect at your next billing date. Plan changes don't create refunds for the current period.",
       ],
     },
     {

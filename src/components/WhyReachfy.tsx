@@ -3,7 +3,7 @@ import { NavIcon } from "./NavIcon";
 
 /*
   "Why Reachfy": four reasons as rows in one white panel, each with a
-  small product visual, then a self-serve strip. Only claims about
+  small product visual. Only claims about
   Reachfy itself; no comparisons with named competitors. Static.
 */
 
@@ -132,22 +132,6 @@ export function WhyReachfy() {
             </li>
           ))}
         </ol>
-
-        {/* Self-serve strip */}
-        <div className="flex flex-col items-start justify-between gap-4 border-t border-line bg-tint/60 p-6 sm:flex-row sm:items-center sm:p-8">
-          <div>
-            <p className="text-lg font-semibold tracking-[-0.015em] text-ink">{t.start.title}</p>
-            <p className="mt-1 text-ink-2">
-              {t.start.body} {content.cta.note}.
-            </p>
-          </div>
-          <a
-            href={content.cta.href}
-            className="btn-primary shrink-0 rounded-xl px-5 py-3 text-[15px] font-medium text-white transition-opacity hover:opacity-90"
-          >
-            {content.cta.label}
-          </a>
-        </div>
       </div>
     </section>
   );

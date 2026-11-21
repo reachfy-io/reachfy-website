@@ -2,7 +2,7 @@
 
 # Reachfy website
 
-Marketing site for Reachfy (reachfy.io; always spelled "Reachfy"). Next.js 16 App Router, Tailwind v4, Motion, static export (`output: "export"`, `trailingSlash: true`) for Cloudflare Pages. The site is **English only**: no language prefixes in URLs, no language switch. Copy lives in `src/content.ts` (home page, nav, footer), `src/productPages.ts` (the /product, /channels and /integrations pages; add a page by adding an entry there), `src/pricing.ts` (the /pricing page; source: the Lean Canvas 2027 revenue streams) and `src/legal.ts` (policies, word for word; change only with legal review).
+Marketing site for Reachfy (reachfy.io; always spelled "Reachfy"). Next.js 16 App Router, Tailwind v4, Motion, static export (`output: "export"`, `trailingSlash: true`) for Cloudflare Pages. The site is **English only**: no language prefixes in URLs, no language switch. Copy lives in `src/content.ts` (home page, nav, footer), `src/productPages.ts` (the /product, /channels and /integrations pages; add a page by adding an entry there), `src/pricing.ts` (the /pricing page; source: the Lean Canvas 2027 revenue streams), `src/security.ts` (the /security page; verified claims only, sources listed in the file) and `src/legal.ts` (policies, word for word; change only with legal review).
 
 These three rules apply to every change.
 

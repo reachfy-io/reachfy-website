@@ -79,10 +79,30 @@ export const content = {
     ],
   },
   hero: {
+    label: "Your AI customer retention agent",
     title: "We bring your customers back",
     sub: "Reachfy's AI agent reads your store data, picks the right customers, writes the message in Arabic or English, and sends it the moment you approve.",
     secondary: "See how it works",
     connects: "Connects to Shopify and Odoo in one click",
+    // The hero visual: the agent's suggestion, then the campaign it prepared
+    // (illustrative numbers, shown under a "Demo" tag)
+    visual: {
+      agent: "Reachfy agent",
+      when: "Monday, 9:00 am",
+      note: "1,240 regulars haven't ordered in 60 days. I've drafted a win-back campaign for them.",
+      ready: "Ready for your approval",
+    },
+  },
+  problem: {
+    label: "The problem",
+    title: "You're losing customers you already worked hard to win",
+    sub: "You paid to win every one of them. Most stores never find out which ones stopped buying, until they're gone.",
+    items: [
+      { icon: "profiles", title: "They buy once and never come back", body: "Without a reason to return, customers quietly drift to someone else." },
+      { icon: "tracking", title: "You can't see who's slipping away", body: "Your order history knows who stopped buying, but it's buried in orders, invoices and spreadsheets." },
+      { icon: "segments", title: "Building lists by hand takes hours", body: "Sorting customers into segments eats the time you'd rather spend running your store." },
+      { icon: "campaigns", title: "Generic blasts get ignored", body: "The same message to everyone feels like spam, so customers tune it out." },
+    ],
   },
   how: {
     label: "How it works",
@@ -186,7 +206,7 @@ export const content = {
   },
   modes: {
     label: "The agent",
-    title: "Two ways to work with the agent",
+    title: "Stop building campaigns. Start approving opportunities.",
     sub: "Ask it for ideas whenever you like, or let it study your store every week and come back with campaigns ready to approve.",
     tag: "Demo",
     items: [
@@ -296,10 +316,6 @@ export const content = {
       agentNote: "1,240 regulars haven't ordered in 60 days. Want me to draft a win-back campaign?",
       agentAction: "Draft it",
     },
-    start: {
-      title: "Start free, no sales call",
-      body: "Sign up and connect your store yourself, in minutes.",
-    },
   },
   features: {
     label: "Features",
@@ -351,7 +367,7 @@ export const content = {
         title: "Your data stays yours",
         // matches the privacy policy: "We do not sell your personal data"
         body: "We don't sell your personal data, and we protect it with industry-standard security.",
-        link: { label: "How we protect it", href: "/privacy/" },
+        link: { label: "How we protect it", href: "/security/" },
       },
     ],
   },
@@ -421,8 +437,20 @@ export const content = {
       {
         q: "Is my customer data safe?",
         a: "We don't sell your personal data, and we protect it with industry-standard security measures.",
-        link: { label: "Read our privacy policy", href: "/privacy/" },
+        link: { label: "How we protect your data", href: "/security/" },
       },
+    ],
+  },
+  // "What happens after you sign up", on the home and pricing pages
+  firstSteps: {
+    label: "Getting started",
+    title: "What happens after you sign up",
+    sub: "You set everything up yourself, with no sales call and no developer.",
+    steps: [
+      { title: "Sign up free", body: "Create your account. No credit card needed." },
+      { title: "Connect your store", body: "Connect Shopify or Odoo in one click, or import your customers from a CSV file." },
+      { title: "Connect your channels", body: "Link your WhatsApp Business number through Meta's sign-up flow, and verify your email domain." },
+      { title: "Approve your first campaign", body: "The agent suggests who to win back and drafts the message. You review it and approve." },
     ],
   },
   finalCta: {
@@ -437,6 +465,7 @@ export const content = {
         title: "Company",
         links: [
           { label: "Pricing", href: "/pricing/" },
+          { label: "Security", href: "/security/" },
           { label: "Contact", href: "mailto:support@reachfy.io" },
           { label: "Sign in", href: "https://app.reachfy.io" },
         ],

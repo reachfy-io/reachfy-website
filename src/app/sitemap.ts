@@ -10,6 +10,7 @@ type Page = { path: string; priority: number; changeFrequency: "weekly" | "yearl
 const pages: Page[] = [
   { path: "/", priority: 1, changeFrequency: "weekly" },
   { path: "/pricing", priority: 0.8, changeFrequency: "weekly" },
+  { path: "/security", priority: 0.6, changeFrequency: "yearly" },
   ...productPages.map((p) => ({ path: pagePath(p), priority: 0.7, changeFrequency: "weekly" as const })),
   { path: "/privacy", priority: 0.3, changeFrequency: "yearly" },
   { path: "/terms", priority: 0.3, changeFrequency: "yearly" },
