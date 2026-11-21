@@ -1,17 +1,18 @@
 # Reachfy website
 
 Next.js + Tailwind + Motion + GSAP, exported as a static site for Cloudflare Pages.
-English lives at `/en/`, Arabic (right-to-left) at `/ar/`; the bare domain picks one from the browser language.
+English only, served at `/`.
 
 ## Run it locally
     npm install
-    npm run dev        # http://localhost:3000/en/
+    npm run dev        # http://localhost:3000/
 
 ## Where things are
 - `src/app/globals.css`: brand colors (taken from the logo)
-- `src/i18n/dictionaries.ts`: every word on the site, English and Arabic
+- `src/content.ts`: every word on the site
 - `src/components/Hero.tsx`: headline and buttons
-- `src/components/AgentDemo.tsx`: the animated agent demo and phone
+- `src/components/HowItWorks.tsx` + `HowVisuals.tsx`: the scroll-driven "How it works" section
+- `src/components/AgentModes.tsx`: the two ways to work with the agent
 - `public/logo.svg`, `public/icon.png`: logo and favicon
 
 ## Deploy on Cloudflare Pages

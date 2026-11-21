@@ -1,41 +1,46 @@
-import type { Dictionary } from "@/i18n/dictionaries";
-import { AgentDemo } from "./AgentDemo";
+import { content } from "@/content";
 
-export function Hero({ t }: { t: Dictionary }) {
+export function Hero() {
+  const t = content;
   return (
-    <section className="relative mx-auto grid w-full max-w-7xl items-center gap-14 px-4 pb-24 pt-10 sm:px-8 lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:pt-16">
-      <div className="max-w-[620px]">
-        <h1 className="font-display text-[clamp(2.6rem,6.2vw,4.9rem)] font-bold leading-[1.02] tracking-[-0.03em] text-text rtl:leading-[1.25] rtl:tracking-normal">
+    <section className="relative">
+      <div className="mx-auto max-w-[820px] px-4 pb-4 pt-20 text-center sm:px-6 sm:pt-32">
+        <h1 className="text-balance text-[clamp(2.4rem,6vw,4.25rem)] font-semibold leading-[1.04] tracking-[-0.035em] text-ink">
           {t.hero.title}
         </h1>
-        <p className="mt-6 max-w-[34rem] text-lg leading-relaxed text-muted sm:text-xl rtl:leading-loose">
+        <p className="mx-auto mt-6 max-w-[36rem] text-lg leading-relaxed text-ink-2">
           {t.hero.sub}
         </p>
-        <div className="mt-9 flex flex-wrap items-center gap-3">
+        {/* The note always sits right under the primary button: on phones the
+            order is primary, note, secondary; from sm up, both buttons, then note. */}
+        <div className="mt-9 flex flex-wrap items-center justify-center gap-x-3">
           <a
-            id="demo"
-            href="#demo"
-            className="rounded-full bg-text px-6 py-3.5 text-base font-semibold text-night shadow-[0_10px_40px_-8px_var(--glow)] transition-transform hover:-translate-y-0.5"
+            href={t.cta.href}
+            className="btn-primary order-1 rounded-xl px-5 py-3 text-[15px] font-medium text-white transition-opacity hover:opacity-90"
           >
-            {t.hero.primary}
+            {t.cta.label}
           </a>
+          <p className="order-2 mt-3 flex basis-full items-center justify-center gap-1.5 text-[13px] text-muted sm:order-3 sm:mt-4">
+            <svg viewBox="0 0 16 16" className="size-3.5 text-brand" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M3.5 8.5l3 3 6-7" />
+            </svg>
+            {t.cta.note}
+          </p>
           <a
-            href="#agent"
-            className="rounded-full px-6 py-3.5 text-base font-medium text-text transition-colors hover:bg-panel"
+            href="#how-it-works"
+            className="order-3 mt-5 rounded-xl bg-white px-5 py-3 text-[15px] font-medium text-ink shadow-md transition-colors hover:bg-soft sm:order-2 sm:mt-0"
           >
             {t.hero.secondary}
           </a>
         </div>
-        <p className="mt-10 flex items-center gap-3 text-sm text-muted">
-          <span className="flex -space-x-1.5 rtl:space-x-reverse" aria-hidden="true">
-            <span className="grid size-7 place-items-center rounded-full border-2 border-night bg-[#95bf47] text-[11px] font-bold text-night">S</span>
-            <span className="grid size-7 place-items-center rounded-full border-2 border-night bg-[#714b67] text-[11px] font-bold text-white">O</span>
+        <p className="mt-10 flex items-center justify-center gap-2.5 text-sm text-muted">
+          <span className="flex -space-x-1.5" aria-hidden="true">
+            <span className="grid size-6 place-items-center rounded-full border-2 border-white bg-[#95bf47] text-[10px] font-bold text-white">S</span>
+            <span className="grid size-6 place-items-center rounded-full border-2 border-white bg-[#714b67] text-[10px] font-bold text-white">O</span>
           </span>
           {t.hero.connects}
         </p>
       </div>
-
-      <AgentDemo t={t.demo} />
     </section>
   );
 }

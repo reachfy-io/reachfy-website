@@ -1,0 +1,14 @@
+# Cloudflare Pages redirects. Keep old URLs alive so search rankings
+# and shared links carry over. Add a line whenever a URL moves.
+
+# Language prefixes from the earlier bilingual build (site is English-only at /)
+/en    /  301
+/en/*  /  301
+/ar    /  301
+/ar/*  /  301
+
+# Pages from the previous site (until they're rebuilt)
+/about     /  301
+/about/    /  301
+/contact   /  301
+/contact/  /  301
