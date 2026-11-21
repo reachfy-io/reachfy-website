@@ -4,7 +4,7 @@ import { NavIcon } from "./NavIcon";
 /*
   The product mockups for "How it works", one per step. Plain HTML/CSS,
   sized to fill the pinned stage on desktop and to stack on phones.
-  Every number here is illustrative and sits under a "Demo" tag.
+  Every number here is illustrative.
 */
 
 const v = content.how.visuals;
@@ -199,10 +199,11 @@ export function ReportVisual() {
           <p className="text-xs text-muted">{r.range}</p>
         </div>
         <dl className="mt-3 grid grid-cols-3 gap-2">
-          {r.stats.map((s) => (
+          {r.stats.map((s, i) => (
             <div key={s.label} className="rounded-lg bg-soft px-2.5 py-2">
               <dt className="text-[11px] text-muted">{s.label}</dt>
-              <dd className="mt-0.5 text-base font-semibold tabular-nums text-ink">{s.value}</dd>
+              {/* customers back and revenue recovered are win-back results: coral */}
+              <dd className={`mt-0.5 text-base font-semibold tabular-nums ${i < 2 ? "text-accent-deep" : "text-ink"}`}>{s.value}</dd>
             </div>
           ))}
         </dl>
@@ -211,11 +212,8 @@ export function ReportVisual() {
           {r.bars.map((b, i) => (
             <div key={i} className="flex flex-1 flex-col items-center gap-1">
               <div
-                className={`w-full rounded-t-md ${i === peak || i === peak + 1 ? "" : "bg-line-strong"}`}
-                style={{
-                  height: `${(b / max) * 64}px`,
-                  backgroundImage: i === peak || i === peak + 1 ? "var(--logo-gradient)" : undefined,
-                }}
+                className={`w-full rounded-t-md ${i === peak || i === peak + 1 ? "bg-accent" : "bg-accent-soft"}`}
+                style={{ height: `${(b / max) * 64}px` }}
               />
               <span className="text-[10px] text-muted">{r.days[i]}</span>
             </div>

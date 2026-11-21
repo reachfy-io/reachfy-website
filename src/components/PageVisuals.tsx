@@ -8,7 +8,7 @@ import { WhyVisual } from "./WhyReachfy";
 /*
   Hero visuals for the product/channel/integration pages. Reuses the
   home page mockups where one fits, and adds three small ones (profile,
-  email, sync). Illustrative numbers only, shown under a "Demo" tag.
+  email, sync). Illustrative numbers only.
 */
 
 const v = content.how.visuals;

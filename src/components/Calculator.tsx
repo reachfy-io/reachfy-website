@@ -210,7 +210,7 @@ export function Calculator() {
         >
           <div className="rounded-xl bg-white p-5 shadow-md" aria-live="polite">
             <p className="text-sm font-medium text-ink-2">{t.result.headline}</p>
-            <p className="mt-1 text-[clamp(2.25rem,5vw,3rem)] font-semibold leading-none tracking-[-0.03em] text-ink tabular-nums">
+            <p className="mt-1 text-[clamp(2.25rem,5vw,3rem)] font-semibold leading-none tracking-[-0.03em] text-accent-deep tabular-nums">
               <AnimatedMoney value={revenue} format={f.money} />
             </p>
             <p className="mt-2 text-sm text-muted">{t.result.suffix}</p>
@@ -222,7 +222,7 @@ export function Calculator() {
               </div>
               <div className="flex justify-between gap-4 py-2.5">
                 <dt className="text-ink-2">{t.result.returning}</dt>
-                <dd className="font-medium tabular-nums text-brand">{f.count(returning)}</dd>
+                <dd className="font-medium tabular-nums text-accent-deep">{f.count(returning)}</dd>
               </div>
               <div className="flex justify-between gap-4 py-2.5">
                 <dt className="text-ink-2">{t.result.ceiling}</dt>

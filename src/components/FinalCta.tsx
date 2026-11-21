@@ -22,8 +22,8 @@ function ReturnedRing() {
     <svg viewBox="0 0 200 200" className="mx-auto size-40" aria-hidden="true">
       <defs>
         <radialGradient id="cta-glow">
-          <stop offset="0" stopColor="var(--brand)" stopOpacity="0.16" />
-          <stop offset="1" stopColor="var(--brand)" stopOpacity="0" />
+          <stop offset="0" stopColor="var(--accent)" stopOpacity="0.18" />
+          <stop offset="1" stopColor="var(--accent)" stopOpacity="0" />
         </radialGradient>
       </defs>
       <circle cx="100" cy="100" r="80" fill="url(#cta-glow)" />
@@ -31,7 +31,7 @@ function ReturnedRing() {
         <circle key={i} cx={x} cy={y} r="2.4" fill="var(--line-strong)" />
       ))}
       {RING.map(([x, y], i) => (
-        <circle key={i} cx={x} cy={y} r="3.4" fill="var(--brand)" />
+        <circle key={i} cx={x} cy={y} r="3.4" fill="var(--accent)" />
       ))}
       <image href="/logo.svg" x="85" y="85" width="30" height="30" />
     </svg>

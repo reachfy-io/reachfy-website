@@ -10,10 +10,12 @@ import { content } from "@/content";
   states:
 
     0  messy    scattered, uneven, jittery (data spread across tools)
-    1  profiles a tidy grid: every customer has one profile
-    2  segments four clusters, lapsed regulars in brand purple
-    3  target   other groups fade, messages travel to the lapsed group
-    4  back     the customers who came back gather around Reachfy
+    1  profiles a tidy grid in soft purple: every customer has one profile
+    2  segments four clusters, each its own color; lapsed regulars (the
+                customers to win back) in the coral accent
+    3  target   other groups fade, coral messages travel to the lapsed group
+    4  back     the customers who came back gather around Reachfy, in the
+                coral accent (the "they came back" color)
 
   Progress is continuous: 1 when step 1 sits at mid-screen, 2 at step 2,
   and so on, so the picture always matches the step being read.
@@ -28,8 +30,13 @@ const TARGET = 0; // lapsed regulars
 const N = COUNTS.reduce((a, b) => a + b, 0);
 
 const BRAND = [76, 56, 145];
+const CORAL = [242, 115, 79]; // --accent
+const CORAL_DEEP = [196, 80, 47]; // --accent-deep, for the coral label
+const PURPLE_SOFT = [157, 143, 208]; // the brand purple, lightened
 const GREY = [168, 160, 194];
 const LIGHT = [205, 199, 223];
+// segment colors: lapsed regulars, weekend buyers, VIPs, one-time buyers
+const SEG_COLORS = [CORAL, PURPLE_SOFT, BRAND, GREY];
 
 type Look = { x: number; y: number; r: number; c: number[]; a: number };
 type Dot = { seg: number; delay: number; phase: number; states: Look[]; returned: boolean };
@@ -86,7 +93,7 @@ function layout(w: number, h: number): Dot[] {
       x: w * (0.14 + (col / (cols - 1)) * 0.72),
       y: h * (0.16 + (row / (gridRows - 1)) * 0.68),
       r: 2.6,
-      c: GREY,
+      c: PURPLE_SOFT,
       a: 0.85,
     };
     // 2 segments: sunflower packing inside each cluster
@@ -97,10 +104,10 @@ function layout(w: number, h: number): Dot[] {
     const cx = w * CENTERS[seg][0] + Math.cos(angle) * dist;
     const cy = h * CENTERS[seg][1] + Math.sin(angle) * dist;
     const isTarget = seg === TARGET;
-    const segments: Look = { x: cx, y: cy, r: 2.8, c: isTarget ? BRAND : GREY, a: isTarget ? 1 : 0.75 };
+    const segments: Look = { x: cx, y: cy, r: isTarget ? 3 : 2.8, c: SEG_COLORS[seg], a: isTarget ? 1 : 0.85 };
     // 3 target: the rest fade back
     const target: Look = isTarget
-      ? { x: cx, y: cy, r: 3.3, c: BRAND, a: 1 }
+      ? { x: cx, y: cy, r: 3.4, c: CORAL, a: 1 }
       : { x: cx, y: cy, r: 2.4, c: LIGHT, a: 0.45 };
     // 4 back: most of the lapsed group returns to a ring around Reachfy
     const returned = isTarget && j < returnedTotal;
@@ -109,7 +116,7 @@ function layout(w: number, h: number): Dot[] {
       const k = returnedIndex++;
       const a = (k / returnedTotal) * Math.PI * 2 - Math.PI / 2;
       const rr = unit * 0.13;
-      back = { x: w * HUB[0] + Math.cos(a) * rr, y: h * HUB[1] + Math.sin(a) * rr, r: 3.6, c: BRAND, a: 1 };
+      back = { x: w * HUB[0] + Math.cos(a) * rr, y: h * HUB[1] + Math.sin(a) * rr, r: 3.6, c: CORAL, a: 1 };
     } else {
       back = { ...target, a: isTarget ? 0.35 : 0.3 };
     }
@@ -200,7 +207,7 @@ export function DataField({ steps }: { steps: React.RefObject<HTMLOListElement |
         for (const d of dots) {
           if (d.seg !== TARGET) continue;
           const s = d.states[3];
-          ctx.strokeStyle = `rgba(76,56,145,${0.12 * wTarget})`;
+          ctx.strokeStyle = `rgba(${CORAL.join(",")},${0.16 * wTarget})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(hx, hy);
@@ -208,7 +215,7 @@ export function DataField({ steps }: { steps: React.RefObject<HTMLOListElement |
           ctx.stroke();
           if (!reduce) {
             const q = (time * 0.00035 + d.phase / (Math.PI * 2)) % 1;
-            ctx.fillStyle = `rgba(76,56,145,${0.7 * wTarget * (1 - q)})`;
+            ctx.fillStyle = `rgba(${CORAL.join(",")},${0.8 * wTarget * (1 - q)})`;
             ctx.beginPath();
             ctx.arc(lerp(hx, s.x, q), lerp(hy, s.y, q), 1.6, 0, Math.PI * 2);
             ctx.fill();
@@ -219,8 +226,8 @@ export function DataField({ steps }: { steps: React.RefObject<HTMLOListElement |
       // a soft halo around Reachfy once customers come back
       if (wBack > 0.01) {
         const g = ctx.createRadialGradient(hx, hy, 0, hx, hy, Math.min(w, h) * 0.24);
-        g.addColorStop(0, `rgba(76,56,145,${0.12 * wBack})`);
-        g.addColorStop(1, "rgba(76,56,145,0)");
+        g.addColorStop(0, `rgba(${CORAL.join(",")},${0.14 * wBack})`);
+        g.addColorStop(1, `rgba(${CORAL.join(",")},0)`);
         ctx.fillStyle = g;
         ctx.fillRect(0, 0, w, h);
       }
@@ -267,7 +274,7 @@ export function DataField({ steps }: { steps: React.RefObject<HTMLOListElement |
           ctx.strokeStyle = `rgba(255,255,255,${fade})`;
           ctx.font = "500 13px 'Inter Variable', system-ui, sans-serif";
           ctx.strokeText(row.name, lx, ly);
-          ctx.fillStyle = `rgba(18,13,36,${0.85 * fade})`;
+          ctx.fillStyle = s === TARGET ? `rgba(${CORAL_DEEP.join(",")},${fade})` : `rgba(18,13,36,${0.85 * fade})`;
           ctx.fillText(row.name, lx, ly);
           ctx.font = "400 12px 'Inter Variable', system-ui, sans-serif";
           ctx.strokeText(row.count, lx, ly + 16);

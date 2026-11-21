@@ -20,6 +20,17 @@
   --brand-deep: #3a2a6a;
   --brand-night: #1c1434;
 
+  /* the accent: warm coral, the "they came back" color. Use it sparingly
+     (about 5% of a page) for win-back moments only; purple stays the
+     brand. accent-deep is for text (accent alone is too light on white). */
+  --accent: #f2734f;
+  --accent-soft: #fdece5;
+  --accent-deep: #c4502f;
+
+  /* WhatsApp's brand green, only for the WhatsApp mark (a third-party
+     brand exception, like the Shopify and Odoo marks) */
+  --wa-green: #25d366;
+
   /* the icon's own gradient, for primary buttons and marks */
   --logo-gradient: linear-gradient(135deg, #000000 0%, #1c1434 55%, #3a2a6a 100%);
 
@@ -43,6 +54,10 @@
   --color-brand: var(--brand);
   --color-brand-deep: var(--brand-deep);
   --color-brand-night: var(--brand-night);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-deep: var(--accent-deep);
+  --color-wa-green: var(--wa-green);
   --shadow-sm: var(--shadow-sm);
   --shadow-md: var(--shadow-md);
   --shadow-lg: var(--shadow-lg);
@@ -113,6 +128,6 @@ body {
 }
 
 ::selection {
-  background: var(--tint);
-  color: var(--brand-deep);
+  background: var(--accent-soft);
+  color: var(--accent-deep);
 }

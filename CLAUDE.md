@@ -13,7 +13,7 @@ These three rules apply to every change.
 - Every section must answer one question: how does this help a store win back customers who stopped buying? If it doesn't, cut it or reframe it.
 - Lead with the outcome (customers return, orders come back), then explain how (the AI agent picks customers, writes the message in Arabic or English, and sends on WhatsApp and email after the business approves). The product writes Arabic messages for MENA stores; only the website itself is English.
 - Product visuals should show win-back moments: lapsed customers found, a message written, the customer replying or ordering again.
-- Be honest. The agent always waits for approval, so never claim it sends on its own. Don't use fake customer logos, testimonials, or usage stats; we have no customers yet. Label any illustrative numbers as "Demo".
+- Be honest. The agent always waits for approval, so never claim it sends on its own. Don't use fake customer logos, testimonials, or usage stats; we have no customers yet. Illustrative numbers may appear inside product mockups and animations without a "Demo" label (decided 2026-11-21), but never state them in page copy as real results (no "stores recovered X").
 
 ## 2. Make sure SEO works with every change
 
@@ -33,14 +33,15 @@ All SEO plumbing lives in `src/lib/seo.ts`. Check these before calling any chang
 
 ## 3. Follow the design properly
 
-The style is white and clean, in the spirit of attio.com. Colors come only from the Reachfy icon.
+The style is white and clean, in the spirit of attio.com. Colors come from the Reachfy icon, plus one accent: warm coral, the "they came back" color.
 
-- **Use the tokens in `src/app/globals.css`, never raw hex values in components:** `bg`, `soft`, `tint`, `line`, `line-strong`, `ink`, `ink-2`, `muted`, `brand` (#4c3891), `brand-deep`, `brand-night`, plus `--logo-gradient` and the `shadow-sm`/`md`/`lg` scale. If a color is missing, add a token; don't invent a one-off color. The only exception is third-party brand colors in their own logos (Shopify, Odoo, WhatsApp).
+- **Use the tokens in `src/app/globals.css`, never raw hex values in components:** `bg`, `soft`, `tint`, `line`, `line-strong`, `ink`, `ink-2`, `muted`, `brand` (#4c3891), `brand-deep`, `brand-night`, the accent `accent` (coral #f2734f), `accent-soft` and `accent-deep` (for text), plus `--logo-gradient` and the `shadow-sm`/`md`/`lg` scale. If a color is missing, add a token; don't invent a one-off color. The only exception is third-party brand colors in their own logos (Shopify, Odoo, WhatsApp).
+- **Accent.** Purple is the brand (buttons, links, the agent's work). Coral marks win-back moments only: approval, messages going out, customers coming back, recovered revenue. Keep it to about 5% of a page; use `accent-deep` for coral text.
 - **Surfaces.** White page with hairline borders (`border-line`) and soft layered shadows. Don't use dark sections, neon glows, or heavy outlines. Tinted panels (`bg-soft`, dotted grid) frame product UI.
 - **Type.** Inter (self-hosted, optical-size build). Headings are `font-semibold` with tight tracking (`tracking-[-0.03em]` range) and `text-balance`. Use sentence case; no ALL-CAPS labels.
 - **Buttons.** The primary button uses the `.btn-primary` class (the logo gradient, white text). The secondary button is white with `shadow-md`. Corner radius is `rounded-xl` for page CTAs and `rounded-lg` inside product UI.
-- **Layout.** The content sits in a centered `max-w-[1200px]` container with no side borders (no vertical frame lines). Use a 16px side gutter on phones (`px-4`). Hero and section headings are centered; product UI is shown as real HTML/CSS mockups, not screenshots.
-- **Motion.** Put the boldness in one place (the scroll-driven "How it works" section). On desktop its pinned dot field (`DataField.tsx`: each dot is a customer; messy data becomes profiles, segments, a targeted campaign, then customers coming back) must always match the step being read, and stay beside the text, never behind it. Elsewhere, keep motion calm and purposeful: don't add a fade-up to every section. Always respect `useReducedMotion`.
+- **Layout.** The content sits in a centered `max-w-[1200px]` container with no side borders (no vertical frame lines). Use a 16px side gutter on phones (`px-4`). Section headings are centered; the home hero is centered, with the animated win-back workflow running full width underneath; product UI is shown as real HTML/CSS mockups, not screenshots.
+- **Motion.** One bold scroll-driven section: "How it works". On desktop its pinned dot field (`DataField.tsx`: each dot is a customer; messy data becomes profiles, segments, a targeted campaign, then customers coming back) must always match the step being read, and stay beside the text, never behind it. Elsewhere, use short story animations that show a win-back moment (the agent suggesting, a message sent, a customer replying or ordering), such as the hero's workflow run (`HeroVisual.tsx`: icon tiles joined by curves, run left to right; it waits at the approval tile before anything sends, repeats while on screen and pauses off screen). Others play once when they scroll into view. Every one reserves its final size so nothing shifts, and keeps its words in the HTML. No generic fade-ups on every section. Always respect `useReducedMotion`: show the finished state instead.
 - **Verify visually.** Screenshot every changed section at 1440px and 390px wide. Check there's no horizontal scroll and no console errors, and fix anything that looks off before moving on.
 
 ## Workflow

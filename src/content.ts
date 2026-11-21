@@ -83,14 +83,25 @@ export const content = {
     title: "We bring your customers back",
     sub: "Reachfy's AI agent reads your store data, picks the right customers, writes the message in Arabic or English, and sends it the moment you approve.",
     secondary: "See how it works",
-    connects: "Connects to Shopify and Odoo in one click",
-    // The hero visual: the agent's suggestion, then the campaign it prepared
-    // (illustrative numbers, shown under a "Demo" tag)
+    // The hero visual: Reachfy's weekly win-back workflow, run left to
+    // right (illustrative numbers)
     visual: {
-      agent: "Reachfy agent",
-      when: "Monday, 9:00 am",
-      note: "1,240 regulars haven't ordered in 60 days. I've drafted a win-back campaign for them.",
-      ready: "Ready for your approval",
+      label:
+        "A Reachfy win-back workflow: every Monday it reads your store's orders from Shopify or Odoo, finds customers who stopped buying, writes the message, waits for your approval, sends it on WhatsApp and email, and counts who comes back.",
+      trigger: "Every Monday at 9:00",
+      // one store per workspace: Shopify or Odoo (more integrations later)
+      store: "Read your store orders",
+      storeNote: "Shopify or Odoo",
+      find: "Find who stopped buying",
+      found: "1,240",
+      write: "Write the message",
+      approve: "Wait for your approval",
+      approveTag: "Approve",
+      approvedTag: "Approved",
+      whatsapp: "Send on WhatsApp",
+      email: "Send by email",
+      back: "customers came back",
+      backCount: 186,
     },
   },
   problem: {
@@ -109,7 +120,6 @@ export const content = {
     title: "Four steps to bring customers back",
     sub: "You connect your store once. The agent does the work at every step, and nothing goes out without your approval.",
     agentLabel: "How the agent helps",
-    tag: "Demo",
     steps: [
       {
         title: "Connect your store and channels",
@@ -144,7 +154,7 @@ export const content = {
         "186 customers came back",
       ],
     },
-    // Words inside the product mockups (illustrative numbers, shown under a "Demo" tag)
+    // Words inside the product mockups (illustrative numbers)
     visuals: {
       connect: {
         title: "Store",
@@ -208,7 +218,6 @@ export const content = {
     label: "The agent",
     title: "Stop building campaigns. Start approving opportunities.",
     sub: "Ask it for ideas whenever you like, or let it study your store every week and come back with campaigns ready to approve.",
-    tag: "Demo",
     items: [
       {
         icon: "chat",
@@ -233,7 +242,7 @@ export const content = {
         ],
       },
     ],
-    // Words inside the two mockups (illustrative numbers, shown under a "Demo" tag)
+    // Words inside the two mockups (illustrative numbers)
     chat: {
       question: "Who should I win back this month?",
       answer:
@@ -338,7 +347,6 @@ export const content = {
     label: "Control",
     title: "You stay in control",
     sub: "The agent does the work. You make the call on everything that reaches your customers.",
-    tag: "Demo",
     approve: {
       title: "You approve every send",
       body: "The agent prepares the campaign: who gets it, what it says and when it goes. Nothing reaches a customer until you approve it.",

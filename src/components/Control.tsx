@@ -71,11 +71,6 @@ export function Control() {
               backgroundSize: "16px 16px",
             }}
           >
-            <div className="mb-2.5 flex justify-end">
-              <span className="rounded-md border border-line bg-white px-2 py-0.5 text-[11px] font-medium text-muted">
-                {t.tag}
-              </span>
-            </div>
             <div className="mx-auto w-full max-w-[400px]">
               <ApprovalMock />
             </div>

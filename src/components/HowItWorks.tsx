@@ -32,9 +32,6 @@ function Window({ step, children }: { step: number; children: React.ReactNode })
           <img src="/logo.svg" alt="" className="size-5" />
           <span className="text-sm font-medium text-ink">{t.steps[step].title}</span>
         </div>
-        <span className="rounded-md border border-line bg-soft px-2 py-0.5 text-xs font-medium text-muted">
-          {t.tag}
-        </span>
       </div>
       <div
         className="bg-soft p-4 sm:p-5"

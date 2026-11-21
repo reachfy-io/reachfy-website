@@ -71,9 +71,6 @@ export function ProductPage({ page }: { page: ProductPageData }) {
                 backgroundSize: "16px 16px",
               }}
             >
-              <span className="absolute end-3 top-3 rounded-md border border-line bg-white px-2 py-0.5 text-[11px] font-medium text-muted">
-                {content.how.tag}
-              </span>
               <PageVisual kind={page.visual} />
             </div>
           </div>

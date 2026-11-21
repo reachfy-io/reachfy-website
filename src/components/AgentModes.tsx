@@ -154,11 +154,6 @@ export function AgentModes() {
                   backgroundSize: "16px 16px",
                 }}
               >
-                <div className="mb-2.5 flex justify-end">
-                  <span className="rounded-md border border-line bg-white px-2 py-0.5 text-[11px] font-medium text-muted">
-                    {t.tag}
-                  </span>
-                </div>
                 {/* grows with its content; the min height keeps both cards even */}
                 <div className="flex min-h-[18rem] flex-1 [&>*]:w-full">
                   <Mock />
