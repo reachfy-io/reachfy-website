@@ -1,31 +1,21 @@
-## How can I edit this code?
+# Reachfy website
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Next.js + Tailwind + Motion + GSAP, exported as a static site for Cloudflare Pages.
+English lives at `/en/`, Arabic (right-to-left) at `/ar/`; the bare domain picks one from the browser language.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Run it locally
+    npm install
+    npm run dev        # http://localhost:3000/en/
 
-Follow these steps:
+## Where things are
+- `src/app/globals.css`: brand colors (taken from the logo)
+- `src/i18n/dictionaries.ts`: every word on the site, English and Arabic
+- `src/components/Hero.tsx`: headline and buttons
+- `src/components/AgentDemo.tsx`: the animated agent demo and phone
+- `public/logo.svg`, `public/icon.png`: logo and favicon
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Deploy on Cloudflare Pages
+Push to GitHub, then in Cloudflare: Workers & Pages > Create > Pages > connect the repo.
+- Build command: `npm run build`
+- Build output directory: `out`
+Every push to main then goes live automatically.

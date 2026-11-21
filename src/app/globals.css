@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@import "@fontsource-variable/bricolage-grotesque";
+@import "@fontsource-variable/readex-pro";
+
+/*
+  Brand tokens, taken from the Reachfy logo (black into deep purple,
+  white mark). Change them here and the whole site follows.
+*/
+:root {
+  --night: #08060f;   /* the logo's violet-black */
+  --panel: #161127;
+  --line: #2c2350;    /* logo mid-purple */
+  --glow: #7b5cff;    /* brighter take on the logo's #463380 */
+  --saffron: #ffb547; /* small warm accent only */
+  --text: #f4f2ff;
+  --muted: #a39cc4;
+}
+
+@theme inline {
+  --color-night: var(--night);
+  --color-panel: var(--panel);
+  --color-line: var(--line);
+  --color-glow: var(--glow);
+  --color-saffron: var(--saffron);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --font-display: "Bricolage Grotesque Variable", "Readex Pro Variable", system-ui, sans-serif;
+  --font-sans: "Readex Pro Variable", system-ui, sans-serif;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+html {
+  background: var(--night);
+  color-scheme: dark;
+}
+
+body {
+  background: var(--night);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Arabic headlines use Readex Pro, which carries both scripts */
+[dir="rtl"] {
+  --font-display: "Readex Pro Variable", system-ui, sans-serif;
+}
+
+:focus-visible {
+  outline: 2px solid var(--saffron);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: var(--glow);
+  color: var(--night);
+}
