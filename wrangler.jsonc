@@ -1,0 +1,15 @@
+// Cloudflare Workers deploy for the static export: `npm run build` writes
+// the site to ./out, and `npx wrangler deploy` uploads it as static assets.
+// No Worker script: Cloudflare serves the files directly, applies
+// public/_redirects (copied into out/), and serves out/404.html for
+// unknown URLs.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "reachfy-website",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./out",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
